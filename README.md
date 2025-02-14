@@ -1,6 +1,6 @@
-# highlightjs-uiua middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/exercism/highlightjs-uiua/blob/main/LICENSE) [![npm version](https://img.shields.io/npm/v/@exercism/highlightjs-uiua.svg?style=flat)](https://www.npmjs.com/package/@exercism/highlightjs-uiua)
+# highlightjs-LANGUAGE_NAME
 
-This repository contains a highlightjs plugin for the [Uiua language](https://www.uiua.org/).
+This repository contains a highlightjs plugin for the LANGUAGE_NAME
 
 ## Installation
 
@@ -32,4 +32,4 @@ Then run:
 bun dev
 ```
 
-This will start a [Vite dev server](https://vite.dev/) that contains some Uiua code and some highlighted text.
+This will start a [Vite dev server](https://vite.dev/) that contains some LANGUAGE_NAME code and some highlighted text.
