@@ -40,11 +40,13 @@ cp -a . "${REPO_DIR}"
 cd "${REPO_DIR}" || die "Failed to cd to ${REPO_DIR}"
 
 for file in $(git grep --files-with-matches replace-this-with-the-track-slug); do
-    sed -i "s/replace-this-with-the-track-slug/${SLUG}/g" "${file}"
+    sed -i.bak "s/replace-this-with-the-track-slug/${SLUG}/g" "${file}"
+    rm -f "${file}.bak"
 done
 
 for file in $(git grep --files-with-matches replace-this-with-the-track-name); do
-    sed -i "s/replace-this-with-the-track-name/${LANGUAGE}/g" "${file}"
+    sed -i.bak "s/replace-this-with-the-track-name/${LANGUAGE}/g" "${file}"
+    rm -f "${file}.bak"
 done
 
 rm -rf bin
