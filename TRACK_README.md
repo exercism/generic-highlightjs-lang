@@ -1,9 +1,8 @@
-# replace-this-with-the-track-name language support for Highlightjs
+# replace-this-with-the-track-name language support for highlight.js
 
 ![NPM Version](https://img.shields.io/npm/v/@exercism/highlightjs-replace-this-with-the-track-slug)
 
-This repo contains the grammar for the replace-this-with-the-track-name language.
-The repo comes with a tiny grammar that shows some basic grammar that you can tweak for your purposes.
+This repo contains the highlight.js language definition for replace-this-with-the-track-name.
 
 ⚠️ To ensure that the package can be integrated on the Exercism website, don't change the packages' versions:
 
@@ -23,32 +22,30 @@ The repo comes with a tiny grammar that shows some basic grammar that you can tw
 
 ## Resources
 
-- [CodeMirror](https://codemirror.net/docs/)
-- [Lezer](https://lezer.codemirror.net/docs/guide/)
-  - [Writing a Grammar](https://lezer.codemirror.net/docs/guide/#writing-a-grammar)
-  - [Examples](https://lezer.codemirror.net/examples/)
-  - [Existing grammar files](https://github.com/search?q=org%3Alezer-parser+path%3A%2F.grammar%24%2F&type=code)
+- [Highlight.js](https://highlightjs.readthedocs.io/en/latest/)
+  - [Language contributor checklist](https://highlightjs.readthedocs.io/en/latest/language-contribution.html)
+  - [Language definition guide](https://highlightjs.readthedocs.io/en/latest/language-guide.html)
+  - [Existing language definitions](https://github.com/highlightjs/highlight.js/tree/main/src/languages)
 
 ## Structure
 
-The repo's source files are defined in [TypeScript](https://www.typescriptlang.org/).
-
-The repo is structured as follows:
+The repo's source files are defined in [TypeScript](https://www.typescriptlang.org/) and compiled to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
 ```text
 .
 ├── src
-│   ├── index.ts (the main plugin)
-│   ├── syntax.grammar (the Lezer grammar)
-│   └── syntax.grammar.d.ts (the grammar typings)
+│   ├── replace-this-with-the-track-slug.ts (the language definition)
+│   ├── replace-this-with-the-track-slug.js (the built output)
+│   └── replace-this-with-the-track-slug.d.ts (the type declarations)
 ├── test
-│   ├── cases (test cases)
-│   │   └ *.txt (test case)
-│   └── grammar.test.ts (test file)
+│   ├── detect (auto-detection test cases)
+│   │   └── *.txt (input)
+│   ├── markup (markup test cases)
+│   │   ├── *.txt (input)
+│   │   └── *.expected (expected output)
+│   └── replace-this-with-the-track-slug.test.ts (test runner for tests/detect)
 ├── index.html (dev server file)
-├── rollup.config.js (bundling config)
-├── tsconfig.json (typescript confif)
-└── vite.config.js (vite dev server config)
+└── tsconfig.json (TypeScript config)
 ```
 
 ## Setup
@@ -59,15 +56,15 @@ Run `bun install` to install all dependencies.
 
 To help with development, run `bun run dev`.
 This will start a [Vite](https://vite.dev/) dev server (usually at http://localhost:5173/) that renders the `index.html` file.
-The `#editor` element gets populated with some sample source code of your choosing and then it will get transformed by the grammar defined in `src/syntax.grammar`.
-Any changes to the grammar will auto-refresh the dev server's rendered contents.
+The page displays a hardcoded sample of source code highlighted using the language definition in `src/replace-this-with-the-track-slug.ts`.
+Any changes to the language definition will auto-refresh the dev server's rendered output.
 
 ## Testing
 
-The `test/cases` directory contains the tests files.
+The `test/detect` and `test/markup` directories contain the test files.
 Run `bun test` to run these tests.
 
-Note: test (case) files should be relatively small and focus on a single aspect of a grammar.
+Note: test files should be relatively small and focus on a single aspect of the language.
 
 ## Publishing
 
